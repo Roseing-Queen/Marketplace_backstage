@@ -5,12 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="861bd94e-5fe9-4e0b-955d-25309541e6dc" name="更改" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MarketplaceBackstage-admin/src/main/java/MarketplaceBackstage/admin/controller/AdminController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MarketplaceBackstage-admin/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MarketplaceBackstage-api/src/main/java/MarketplaceBackstage/api/controller/ApiController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MarketplaceBackstage-api/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MarketplaceBackstage-common/src/main/java/MarketplaceBackstage/common/response/ResponseCode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MarketplaceBackstage-common/src/main/java/MarketplaceBackstage/common/utils/IdWorker.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MarketplaceBackstage-common/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MarketplaceBackstage-security/MarketplaceBackstage-security-admin/src/main/java/MarketplaceBackstage/security/admin/controller/SecurityAdminController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MarketplaceBackstage-security/MarketplaceBackstage-security-admin/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MarketplaceBackstage-security/MarketplaceBackstage-security-api/src/main/java/MarketplaceBackstage/security/api/controller/SecurityController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MarketplaceBackstage-security/MarketplaceBackstage-security-api/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MarketplaceBackstage-shop/src/main/java/MarketplaceBackstage/shop/controller/ShopController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MarketplaceBackstage-shop/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Marketplace_backstage-common/src/main/resources/archetype-resources/src/test/java/AppTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Marketplace_backstage-service/src/main/resources/archetype-resources/src/test/java/AppTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +29,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -52,7 +62,7 @@
     <option name="generalSettings">
       <MavenGeneralSettings>
         <option name="localRepository" value="D:\resposity" />
-        <option name="mavenHome" value="使用 Maven 包装器" />
+        <option name="mavenHome" value="Use Maven wrapper" />
         <option name="useMavenConfig" value="false" />
         <option name="userSettingsFile" value="C:\Program Files\apache-maven-3.9.5\conf\settings.xml" />
       </MavenGeneralSettings>
@@ -66,24 +76,73 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;21&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "develop",
+    "ignore.virus.scanning.warn.message": "true",
+    "jdk.selected.JAVA_MODULE": "21",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/github/Marketplace_backstage",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "模块",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "MavenSettings",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.AdminApplication">
+    <configuration name="AdminApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="MarketplaceBackstage-security-admin" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="MarketplaceBackstage.security.admin.AdminApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AdminApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="MarketplaceBackstage-admin" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="MarketplaceBackstage.admin.AdminApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ApiApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="MarketplaceBackstage-security-api" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="MarketplaceBackstage.security.api.ApiApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ApiApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="MarketplaceBackstage-api" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="MarketplaceBackstage.api.ApiApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ShopApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="MarketplaceBackstage-shop" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="MarketplaceBackstage.shop.ShopApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -105,6 +164,7 @@
       <workItem from="1705462991046" duration="559000" />
       <workItem from="1705467930715" duration="231000" />
       <workItem from="1705468194807" duration="53000" />
+      <workItem from="1705498914122" duration="5137000" />
     </task>
     <servers />
   </component>
