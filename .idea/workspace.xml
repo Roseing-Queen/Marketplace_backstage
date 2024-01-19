@@ -5,20 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="861bd94e-5fe9-4e0b-955d-25309541e6dc" name="更改" comment="">
-      <change afterPath="$PROJECT_DIR$/MarketplaceBackstage-admin/src/main/java/MarketplaceBackstage/admin/controller/AdminController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MarketplaceBackstage-admin/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MarketplaceBackstage-api/src/main/java/MarketplaceBackstage/api/controller/ApiController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MarketplaceBackstage-api/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MarketplaceBackstage-common/src/main/java/MarketplaceBackstage/common/response/ResponseCode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MarketplaceBackstage-common/src/main/java/MarketplaceBackstage/common/utils/IdWorker.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MarketplaceBackstage-common/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MarketplaceBackstage-security/MarketplaceBackstage-security-admin/src/main/java/MarketplaceBackstage/security/admin/controller/SecurityAdminController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MarketplaceBackstage-security/MarketplaceBackstage-security-admin/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MarketplaceBackstage-security/MarketplaceBackstage-security-api/src/main/java/MarketplaceBackstage/security/api/controller/SecurityController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MarketplaceBackstage-security/MarketplaceBackstage-security-api/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MarketplaceBackstage-shop/src/main/java/MarketplaceBackstage/shop/controller/ShopController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MarketplaceBackstage-shop/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MarketplaceBackstage-security/MarketplaceBackstage-security-api/src/main/java/MarketplaceBackstage/security/api/ApiApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/MarketplaceBackstage-security/MarketplaceBackstage-security-api/src/main/java/MarketplaceBackstage/security/api/ApiApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -31,6 +19,7 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -78,9 +67,12 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "JUnit.IdWorkerTest.getGeneratorUUID.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "dart.analysis.tool.window.visible": "false",
     "git-widget-placeholder": "develop",
     "ignore.virus.scanning.warn.message": "true",
@@ -95,18 +87,48 @@
     "project.structure.last.edited": "模块",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
+    "run.configurations.included.in.services": "true",
     "settings.editor.selected.configurable": "MavenSettings",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="MarketplaceBackstage.common.utils" />
+    </key>
+  </component>
   <component name="RunDashboard">
     <option name="configurationTypes">
       <set>
+        <option value="MicronautRunConfigurationType" />
+        <option value="QuarkusRunConfigurationType" />
         <option value="SpringBootApplicationConfigurationType" />
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.AdminApplication">
+  <component name="RunManager" selected="JUnit.IdWorkerTest.getGeneratorUUID">
+    <configuration name="IdWorkerTest.getGeneratorUUID" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MarketplaceBackstage-common" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="MarketplaceBackstage.common.utils.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="MarketplaceBackstage.common.utils" />
+      <option name="MAIN_CLASS_NAME" value="MarketplaceBackstage.common.utils.IdWorkerTest" />
+      <option name="METHOD_NAME" value="getGeneratorUUID" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="AdminApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="MarketplaceBackstage-security-admin" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="MarketplaceBackstage.security.admin.AdminApplication" />
@@ -142,6 +164,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.IdWorkerTest.getGeneratorUUID" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -165,6 +192,9 @@
       <workItem from="1705467930715" duration="231000" />
       <workItem from="1705468194807" duration="53000" />
       <workItem from="1705498914122" duration="5137000" />
+      <workItem from="1705540931028" duration="1688000" />
+      <workItem from="1705549678089" duration="2593000" />
+      <workItem from="1705586419324" duration="3951000" />
     </task>
     <servers />
   </component>
