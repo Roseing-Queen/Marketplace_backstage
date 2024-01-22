@@ -1,12 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="SCOPE_TYPE" value="3" />
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="861bd94e-5fe9-4e0b-955d-25309541e6dc" name="更改" comment="">
+      <change afterPath="$PROJECT_DIR$/MarketplaceBackstage-common/src/main/java/MarketplaceBackstage/common/utils/crypto/Decrypt.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MarketplaceBackstage-common/src/main/java/MarketplaceBackstage/common/utils/crypto/Encryption.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MarketplaceBackstage-security/MarketplaceBackstage-security-api/src/main/java/MarketplaceBackstage/security/api/ApiApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/MarketplaceBackstage-security/MarketplaceBackstage-security-api/src/main/java/MarketplaceBackstage/security/api/ApiApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MarketplaceBackstage-admin/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/MarketplaceBackstage-admin/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MarketplaceBackstage-admin/src/main/java/MarketplaceBackstage/admin/AdminApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/MarketplaceBackstage-admin/src/main/java/MarketplaceBackstage/admin/AdminApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MarketplaceBackstage-admin/src/main/java/MarketplaceBackstage/admin/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/MarketplaceBackstage-admin/src/main/java/MarketplaceBackstage/admin/controller/AdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MarketplaceBackstage-admin/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/MarketplaceBackstage-admin/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MarketplaceBackstage-admin/target/classes/MarketplaceBackstage/admin/AdminApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/MarketplaceBackstage-admin/target/classes/MarketplaceBackstage/admin/AdminApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MarketplaceBackstage-common/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/MarketplaceBackstage-common/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MarketplaceBackstage-common/src/main/resources/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MarketplaceBackstage-common/target/classes/MarketplaceBackstage/common/utils/IdWorker.class" beforeDir="false" afterPath="$PROJECT_DIR$/MarketplaceBackstage-common/target/classes/MarketplaceBackstage/common/utils/IdWorker.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MarketplaceBackstage-common/target/classes/application.yml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -65,33 +78,41 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "JUnit.IdWorkerTest.getGeneratorUUID.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "develop",
-    "ignore.virus.scanning.warn.message": "true",
-    "jdk.selected.JAVA_MODULE": "21",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/github/Marketplace_backstage",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "模块",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "run.configurations.included.in.services": "true",
-    "settings.editor.selected.configurable": "MavenSettings",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;JUnit.AdminServiceTest.alsa.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.EncryptionTest.cryptographicIrreversible.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.EncryptionTest.reversibleEncryption.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.IdWorkerTest.getGeneratorUUID.executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;Spring Boot.AdminApplication.executor&quot;: &quot;Run&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;21&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/github/Marketplace_backstage&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;模块&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
@@ -100,6 +121,9 @@
       <recent name="" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="MarketplaceBackstage.admin.controller" />
+      <recent name="MarketplaceBackstage.admin.Service" />
+      <recent name="MarketplaceBackstage.common.utils.crypto" />
       <recent name="MarketplaceBackstage.common.utils" />
     </key>
   </component>
@@ -112,7 +136,55 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.IdWorkerTest.getGeneratorUUID">
+  <component name="RunManager" selected="JUnit.AdminServiceTest.alsa">
+    <configuration name="AdminServiceTest.alsa" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MarketplaceBackstage-admin" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="MarketplaceBackstage.admin.Service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="MarketplaceBackstage.admin.Service" />
+      <option name="MAIN_CLASS_NAME" value="MarketplaceBackstage.admin.Service.AdminServiceTest" />
+      <option name="METHOD_NAME" value="alsa" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EncryptionTest.cryptographicIrreversible" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MarketplaceBackstage-common" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="MarketplaceBackstage.common.utils.crypto.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="MarketplaceBackstage.common.utils.crypto" />
+      <option name="MAIN_CLASS_NAME" value="MarketplaceBackstage.common.utils.crypto.EncryptionTest" />
+      <option name="METHOD_NAME" value="cryptographicIrreversible" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EncryptionTest.reversibleEncryption" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="MarketplaceBackstage-common" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="MarketplaceBackstage.common.utils.crypto.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="MarketplaceBackstage.common.utils.crypto" />
+      <option name="MAIN_CLASS_NAME" value="MarketplaceBackstage.common.utils.crypto.EncryptionTest" />
+      <option name="METHOD_NAME" value="reversibleEncryption" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="IdWorkerTest.getGeneratorUUID" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="MarketplaceBackstage-common" />
       <extension name="coverage">
@@ -166,6 +238,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.AdminServiceTest.alsa" />
+        <item itemvalue="JUnit.EncryptionTest.reversibleEncryption" />
+        <item itemvalue="JUnit.EncryptionTest.cryptographicIrreversible" />
         <item itemvalue="JUnit.IdWorkerTest.getGeneratorUUID" />
       </list>
     </recent_temporary>
@@ -195,6 +270,13 @@
       <workItem from="1705540931028" duration="1688000" />
       <workItem from="1705549678089" duration="2593000" />
       <workItem from="1705586419324" duration="3951000" />
+      <workItem from="1705642645002" duration="2800000" />
+      <workItem from="1705669937167" duration="1915000" />
+      <workItem from="1705672279388" duration="1642000" />
+      <workItem from="1705809782153" duration="3069000" />
+      <workItem from="1705840199935" duration="3485000" />
+      <workItem from="1705843734324" duration="2136000" />
+      <workItem from="1705888832849" duration="29000" />
     </task>
     <servers />
   </component>
