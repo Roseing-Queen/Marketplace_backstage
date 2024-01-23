@@ -17,7 +17,4 @@ public class AdminService {
     @Value("${my.url}")
     private String url;
 
-    public void alsa() {
-        System.out.println(url);
-    }
 }

@@ -19,6 +19,7 @@ import java.security.NoSuchAlgorithmException;
 import java.security.interfaces.RSAPublicKey;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.X509EncodedKeySpec;
+
 @Component
 @Configuration
 //加密的方法
@@ -29,16 +30,13 @@ public class Encryption {
     }
 
     //Encryption method for output sensitive information
-    public String ReversibleEncryption(String content) throws IOException, NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeySpecException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException {
-        System.out.println("key");
-       /* byte[] bytes = Base64.decodeBase64(key);
-        System.out.println(bytes);
-        RSAPublicKey rsa =(RSAPublicKey) KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(bytes));
+    public String ReversibleEncryption(String key, String content) throws IOException, NoSuchPaddingException, NoSuchAlgorithmException, InvalidKeySpecException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException {
+        byte[] bytes = Base64.decodeBase64(key);
+        RSAPublicKey rsa = (RSAPublicKey) KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(bytes));
         Cipher instance = Cipher.getInstance("RSA");
-        instance.init(Cipher.ENCRYPT_MODE,rsa);
+        instance.init(Cipher.ENCRYPT_MODE, rsa);
         String s = Base64.encodeBase64String(instance.doFinal(content.getBytes("UTF-8")));
         System.out.println(s);
-        return s;*/
-        return "";
+        return s;
     }
 }
