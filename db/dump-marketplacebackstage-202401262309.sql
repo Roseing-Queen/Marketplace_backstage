@@ -84,6 +84,56 @@ LOCK TABLES `blindbox` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `blindboxdetail`
+--
+
+DROP TABLE IF EXISTS `blindboxdetail`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `blindboxdetail` (
+  `DetailImageId` bigint unsigned NOT NULL AUTO_INCREMENT COMMENT '图片的id',
+  `blindBoxCode` varchar(200) NOT NULL COMMENT '所属盲盒的code',
+  `imageUrl` varchar(800) NOT NULL,
+  `createTime` datetime NOT NULL COMMENT '创建的时间',
+  PRIMARY KEY (`DetailImageId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `blindboxdetail`
+--
+
+LOCK TABLES `blindboxdetail` WRITE;
+/*!40000 ALTER TABLE `blindboxdetail` DISABLE KEYS */;
+/*!40000 ALTER TABLE `blindboxdetail` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `blindboxswiper`
+--
+
+DROP TABLE IF EXISTS `blindboxswiper`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `blindboxswiper` (
+  `blindBoxSwiperId` bigint unsigned NOT NULL AUTO_INCREMENT COMMENT '盲盒图片的Id',
+  `blindBoxcode` bigint unsigned NOT NULL COMMENT '所属盲盒的code',
+  `imageUrl` varchar(500) NOT NULL COMMENT '图片的url',
+  `createTime` datetime NOT NULL COMMENT '创建时间',
+  PRIMARY KEY (`blindBoxSwiperId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `blindboxswiper`
+--
+
+LOCK TABLES `blindboxswiper` WRITE;
+/*!40000 ALTER TABLE `blindboxswiper` DISABLE KEYS */;
+/*!40000 ALTER TABLE `blindboxswiper` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `commodity`
 --
 
@@ -104,10 +154,11 @@ CREATE TABLE `commodity` (
   `StockQuantity` bigint unsigned NOT NULL COMMENT '商品的库存',
   `SupplierNo` bigint unsigned NOT NULL COMMENT '供应商的唯一标识',
   `state` tinyint(1) NOT NULL COMMENT 'true：启用，false：禁用',
-  `createTime` datetime NOT NULL COMMENT '创建时间',
-  `UpdateTime` datetime NOT NULL COMMENT '编辑时间',
   `userNo` bigint unsigned NOT NULL COMMENT 'The userNo of the last modified operation',
   `Weight` bigint unsigned NOT NULL COMMENT '商品重量单位为克',
+  `thumbnail` varchar(500) NOT NULL COMMENT '商品的缩略图',
+  `createTime` datetime NOT NULL COMMENT '创建时间',
+  `UpdateTime` datetime NOT NULL COMMENT '编辑时间',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -119,6 +170,124 @@ CREATE TABLE `commodity` (
 LOCK TABLES `commodity` WRITE;
 /*!40000 ALTER TABLE `commodity` DISABLE KEYS */;
 /*!40000 ALTER TABLE `commodity` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `commoditycategory`
+--
+
+DROP TABLE IF EXISTS `commoditycategory`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `commoditycategory` (
+  `CategoryId` bigint unsigned NOT NULL AUTO_INCREMENT COMMENT '类别的唯一的标识',
+  `CategoryParentId` bigint unsigned DEFAULT NULL COMMENT '父分类的id可以为空',
+  `CategoryLevel` int NOT NULL DEFAULT '1' COMMENT '类别的层级默认为1最大为2',
+  `CategoryName` varchar(100) NOT NULL COMMENT '类别的名称',
+  `CategoryIcon` varchar(250) DEFAULT NULL COMMENT '分类图标的链接',
+  `iconUrl` varchar(500) NOT NULL COMMENT '图标的链接',
+  `state` int unsigned NOT NULL DEFAULT '1' COMMENT '值为1表示启用值为2表示禁用',
+  `CreateTime` datetime DEFAULT NULL COMMENT '创建时间',
+  `UpdateTime` date NOT NULL COMMENT '更新时间',
+  PRIMARY KEY (`CategoryId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `commoditycategory`
+--
+
+LOCK TABLES `commoditycategory` WRITE;
+/*!40000 ALTER TABLE `commoditycategory` DISABLE KEYS */;
+/*!40000 ALTER TABLE `commoditycategory` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `commoditydetail`
+--
+
+DROP TABLE IF EXISTS `commoditydetail`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `commoditydetail` (
+  `DetailImageId` bigint unsigned NOT NULL AUTO_INCREMENT COMMENT '详情图片的Id',
+  `CommodityCode` bigint unsigned NOT NULL COMMENT '所属的商品的code',
+  `imageUrl` varchar(800) NOT NULL COMMENT '图片的地址',
+  `createTime` datetime NOT NULL COMMENT '创建时间',
+  PRIMARY KEY (`DetailImageId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `commoditydetail`
+--
+
+LOCK TABLES `commoditydetail` WRITE;
+/*!40000 ALTER TABLE `commoditydetail` DISABLE KEYS */;
+/*!40000 ALTER TABLE `commoditydetail` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `commoditylabel`
+--
+
+DROP TABLE IF EXISTS `commoditylabel`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `commoditylabel` (
+  `LabelId` bigint unsigned NOT NULL AUTO_INCREMENT COMMENT '唯一表示',
+  `LabelName` varchar(100) NOT NULL COMMENT '标签名称',
+  `status` int NOT NULL DEFAULT '1' COMMENT '1为启用，2为禁用',
+  `CreateTime` datetime DEFAULT NULL COMMENT '创建时间',
+  `UpdateTime` datetime NOT NULL COMMENT '更新时间',
+  PRIMARY KEY (`LabelId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `commoditylabel`
+--
+
+LOCK TABLES `commoditylabel` WRITE;
+/*!40000 ALTER TABLE `commoditylabel` DISABLE KEYS */;
+/*!40000 ALTER TABLE `commoditylabel` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `commodityorder`
+--
+
+DROP TABLE IF EXISTS `commodityorder`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `commodityorder` (
+  `commodityOrder_id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `commodityorderNo` bigint unsigned NOT NULL COMMENT '编码',
+  `userNo` bigint unsigned NOT NULL COMMENT '所属的用户的No',
+  `total_amount` decimal(25,8) NOT NULL COMMENT '总价',
+  `paid_amount` decimal(25,8) DEFAULT NULL COMMENT '已付款的金额',
+  `createTime` datetime NOT NULL COMMENT '创建时间',
+  `UpdateTime` datetime NOT NULL COMMENT '更新日期',
+  `unpaid_amount` decimal(25,8) NOT NULL COMMENT '未付款的金额',
+  `payment_method` int NOT NULL COMMENT '1.wechat2.alipay3.google pay 4.paypal',
+  `status` int NOT NULL COMMENT '0.未付款1.已付款未发货2.已发货3.已收货4.售后中',
+  `payTime` datetime DEFAULT NULL COMMENT '支付时间',
+  `delivery_time` datetime DEFAULT NULL COMMENT '发货时间',
+  `finish_time` datetime DEFAULT NULL COMMENT '完成时间',
+  `Remark` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '500字以内，备注信息',
+  `LogisticsNo` smallint unsigned NOT NULL COMMENT '物流公司的编号',
+  `OrderQuantity` bigint unsigned NOT NULL COMMENT '商品数量',
+  PRIMARY KEY (`commodityOrder_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `commodityorder`
+--
+
+LOCK TABLES `commodityorder` WRITE;
+/*!40000 ALTER TABLE `commodityorder` DISABLE KEYS */;
+/*!40000 ALTER TABLE `commodityorder` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -150,6 +319,32 @@ CREATE TABLE `commodityspecifications` (
 LOCK TABLES `commodityspecifications` WRITE;
 /*!40000 ALTER TABLE `commodityspecifications` DISABLE KEYS */;
 /*!40000 ALTER TABLE `commodityspecifications` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `commodityswiper`
+--
+
+DROP TABLE IF EXISTS `commodityswiper`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `commodityswiper` (
+  `commoditySwiperId` bigint unsigned NOT NULL AUTO_INCREMENT COMMENT '唯一的主键',
+  `CommodityCode` bigint unsigned NOT NULL COMMENT '所属的商品的编码',
+  `imageUrl` varchar(800) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '图片的链接',
+  `createTime` datetime NOT NULL COMMENT '创建时间',
+  `UpdateTime` datetime NOT NULL COMMENT '更新的时间',
+  PRIMARY KEY (`commoditySwiperId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `commodityswiper`
+--
+
+LOCK TABLES `commodityswiper` WRITE;
+/*!40000 ALTER TABLE `commodityswiper` DISABLE KEYS */;
+/*!40000 ALTER TABLE `commodityswiper` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -207,82 +402,33 @@ LOCK TABLES `operationlog` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `productcategory`
+-- Table structure for table `ordercommodity`
 --
 
-DROP TABLE IF EXISTS `productcategory`;
+DROP TABLE IF EXISTS `ordercommodity`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `productcategory` (
-  `CategoryId` bigint unsigned NOT NULL AUTO_INCREMENT COMMENT '类别的唯一的标识',
-  `CategoryParentId` bigint unsigned DEFAULT NULL COMMENT '父分类的id可以为空',
-  `CategoryLevel` int NOT NULL DEFAULT '1' COMMENT '类别的层级默认为1最大为2',
-  `CategoryName` varchar(100) NOT NULL COMMENT '类别的名称',
-  `CategoryIcon` varchar(250) DEFAULT NULL COMMENT '分类图标的链接',
-  `state` int unsigned NOT NULL DEFAULT '1' COMMENT '值为1表示启用值为2表示禁用',
-  `CreateTime` datetime DEFAULT NULL COMMENT '创建时间',
-  `UpdateTime` date NOT NULL COMMENT '更新时间',
-  PRIMARY KEY (`CategoryId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `productcategory`
---
-
-LOCK TABLES `productcategory` WRITE;
-/*!40000 ALTER TABLE `productcategory` DISABLE KEYS */;
-/*!40000 ALTER TABLE `productcategory` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `productlabel`
---
-
-DROP TABLE IF EXISTS `productlabel`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `productlabel` (
-  `LabelId` bigint unsigned NOT NULL AUTO_INCREMENT COMMENT '唯一表示',
-  `LabelName` varchar(100) NOT NULL COMMENT '标签名称',
-  `status` int NOT NULL DEFAULT '1' COMMENT '1为启用，2为禁用',
-  `CreateTime` datetime DEFAULT NULL COMMENT '创建时间',
+CREATE TABLE `ordercommodity` (
+  `OrderCommodityId` bigint unsigned NOT NULL AUTO_INCREMENT COMMENT '唯一的对外主键',
+  `OrderNo` bigint unsigned NOT NULL COMMENT '所属的订单的No',
+  `CommodityCode` bigint unsigned NOT NULL COMMENT '所属的商品的Code',
+  `specificationCode` bigint unsigned NOT NULL COMMENT '所属的规格的code',
+  `quantity` bigint unsigned NOT NULL COMMENT '数量',
+  `unitPrice` decimal(25,8) NOT NULL COMMENT '商品的单价',
+  `totalPrice` decimal(25,8) NOT NULL COMMENT '总价',
+  `createTime` datetime NOT NULL COMMENT '创建时间',
   `UpdateTime` datetime NOT NULL COMMENT '更新时间',
-  PRIMARY KEY (`LabelId`)
+  PRIMARY KEY (`OrderCommodityId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `productlabel`
+-- Dumping data for table `ordercommodity`
 --
 
-LOCK TABLES `productlabel` WRITE;
-/*!40000 ALTER TABLE `productlabel` DISABLE KEYS */;
-/*!40000 ALTER TABLE `productlabel` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `productorder`
---
-
-DROP TABLE IF EXISTS `productorder`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `productorder` (
-  `ProductId` bigint unsigned NOT NULL COMMENT '唯一键',
-  `ProductNo` varchar(100) NOT NULL COMMENT '唯一检索no',
-  `UserNo` bigint unsigned NOT NULL COMMENT '下单的用户表的No',
-  PRIMARY KEY (`ProductId`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `productorder`
---
-
-LOCK TABLES `productorder` WRITE;
-/*!40000 ALTER TABLE `productorder` DISABLE KEYS */;
-/*!40000 ALTER TABLE `productorder` ENABLE KEYS */;
+LOCK TABLES `ordercommodity` WRITE;
+/*!40000 ALTER TABLE `ordercommodity` DISABLE KEYS */;
+/*!40000 ALTER TABLE `ordercommodity` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -375,6 +521,31 @@ CREATE TABLE `shopuser` (
 LOCK TABLES `shopuser` WRITE;
 /*!40000 ALTER TABLE `shopuser` DISABLE KEYS */;
 /*!40000 ALTER TABLE `shopuser` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `specificationimage`
+--
+
+DROP TABLE IF EXISTS `specificationimage`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `specificationimage` (
+  `SpecificationImageId` bigint unsigned NOT NULL AUTO_INCREMENT COMMENT '所属的图片的id',
+  `SpecificationCode` varchar(200) NOT NULL COMMENT '所属的规格的code',
+  `imageUrl` varchar(800) NOT NULL COMMENT '所属图片的url',
+  `createTime` datetime NOT NULL COMMENT '创建时间',
+  PRIMARY KEY (`SpecificationImageId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `specificationimage`
+--
+
+LOCK TABLES `specificationimage` WRITE;
+/*!40000 ALTER TABLE `specificationimage` DISABLE KEYS */;
+/*!40000 ALTER TABLE `specificationimage` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -478,4 +649,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-01-25 22:57:42
+-- Dump completed on 2024-01-26 23:09:08
