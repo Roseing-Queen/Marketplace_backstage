@@ -43,18 +43,8 @@ CREATE TABLE `admin_user` (
   UNIQUE KEY `admin_user_pk3` (`userNo`),
   UNIQUE KEY `admin_user_pk4` (`userId`),
   KEY `admin_user_userId_index` (`userId`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='系统用户表';
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `admin_user`
---
-
-LOCK TABLES `admin_user` WRITE;
-/*!40000 ALTER TABLE `admin_user` DISABLE KEYS */;
-INSERT INTO `admin_user` VALUES (10000001,'admin',1,'students','10000001','123456','19522272668',1,'example@example.com','管理员','{}',1,'2024-01-18 23:48:53','2024-01-18 23:48:56');
-/*!40000 ALTER TABLE `admin_user` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `blindbox`
@@ -70,18 +60,18 @@ CREATE TABLE `blindbox` (
   `UpdateTime` datetime NOT NULL,
   `userNo` varchar(100) DEFAULT NULL COMMENT 'The unique identifier of the last operator userNo',
   `state` int NOT NULL COMMENT '1，enable，2，Removed from shelves',
+  `startTime` datetime NOT NULL COMMENT '开始时间',
+  `endTime` datetime NOT NULL COMMENT '结束时间',
+  `pushCrowd` int NOT NULL COMMENT '1.新客2.普通3.老客户4.',
+  `remark` varchar(1000) DEFAULT NULL COMMENT '概率公示',
+  `price` double(25,8) NOT NULL COMMENT '盲盒价格',
+  `LabelNo` decimal(10,0) NOT NULL COMMENT '盲盒标签的No',
+  `type` tinyint(1) NOT NULL DEFAULT '0' COMMENT '是否首页展示默认不展示（false）',
+  `sort` int DEFAULT NULL COMMENT '首页展示排序最大为15',
+  `thumbnail` varchar(500) NOT NULL COMMENT '缩略图地址',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `blindbox`
---
-
-LOCK TABLES `blindbox` WRITE;
-/*!40000 ALTER TABLE `blindbox` DISABLE KEYS */;
-/*!40000 ALTER TABLE `blindbox` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `blindboxdetail`
@@ -100,13 +90,21 @@ CREATE TABLE `blindboxdetail` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `blindboxdetail`
+-- Table structure for table `blindboxlabel`
 --
 
-LOCK TABLES `blindboxdetail` WRITE;
-/*!40000 ALTER TABLE `blindboxdetail` DISABLE KEYS */;
-/*!40000 ALTER TABLE `blindboxdetail` ENABLE KEYS */;
-UNLOCK TABLES;
+DROP TABLE IF EXISTS `blindboxlabel`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `blindboxlabel` (
+  `LabelId` bigint unsigned NOT NULL AUTO_INCREMENT COMMENT '标签Id',
+  `LabelName` varchar(300) NOT NULL COMMENT '标签名称',
+  `state` int NOT NULL COMMENT '标签状态1.启用2.禁用',
+  `createTime` datetime NOT NULL COMMENT '创建时间',
+  `UpdateTime` datetime NOT NULL COMMENT '更新时间',
+  PRIMARY KEY (`LabelId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='盲盒标签表';
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `blindboxswiper`
@@ -123,15 +121,6 @@ CREATE TABLE `blindboxswiper` (
   PRIMARY KEY (`blindBoxSwiperId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `blindboxswiper`
---
-
-LOCK TABLES `blindboxswiper` WRITE;
-/*!40000 ALTER TABLE `blindboxswiper` DISABLE KEYS */;
-/*!40000 ALTER TABLE `blindboxswiper` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `commodity`
@@ -164,15 +153,6 @@ CREATE TABLE `commodity` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `commodity`
---
-
-LOCK TABLES `commodity` WRITE;
-/*!40000 ALTER TABLE `commodity` DISABLE KEYS */;
-/*!40000 ALTER TABLE `commodity` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `commoditycategory`
 --
 
@@ -194,15 +174,6 @@ CREATE TABLE `commoditycategory` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `commoditycategory`
---
-
-LOCK TABLES `commoditycategory` WRITE;
-/*!40000 ALTER TABLE `commoditycategory` DISABLE KEYS */;
-/*!40000 ALTER TABLE `commoditycategory` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `commoditydetail`
 --
 
@@ -217,15 +188,6 @@ CREATE TABLE `commoditydetail` (
   PRIMARY KEY (`DetailImageId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `commoditydetail`
---
-
-LOCK TABLES `commoditydetail` WRITE;
-/*!40000 ALTER TABLE `commoditydetail` DISABLE KEYS */;
-/*!40000 ALTER TABLE `commoditydetail` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `commoditylabel`
@@ -243,15 +205,6 @@ CREATE TABLE `commoditylabel` (
   PRIMARY KEY (`LabelId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `commoditylabel`
---
-
-LOCK TABLES `commoditylabel` WRITE;
-/*!40000 ALTER TABLE `commoditylabel` DISABLE KEYS */;
-/*!40000 ALTER TABLE `commoditylabel` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `commodityorder`
@@ -282,15 +235,6 @@ CREATE TABLE `commodityorder` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `commodityorder`
---
-
-LOCK TABLES `commodityorder` WRITE;
-/*!40000 ALTER TABLE `commodityorder` DISABLE KEYS */;
-/*!40000 ALTER TABLE `commodityorder` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `commodityspecifications`
 --
 
@@ -313,15 +257,6 @@ CREATE TABLE `commodityspecifications` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `commodityspecifications`
---
-
-LOCK TABLES `commodityspecifications` WRITE;
-/*!40000 ALTER TABLE `commodityspecifications` DISABLE KEYS */;
-/*!40000 ALTER TABLE `commodityspecifications` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `commodityswiper`
 --
 
@@ -337,15 +272,6 @@ CREATE TABLE `commodityswiper` (
   PRIMARY KEY (`commoditySwiperId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `commodityswiper`
---
-
-LOCK TABLES `commodityswiper` WRITE;
-/*!40000 ALTER TABLE `commodityswiper` DISABLE KEYS */;
-/*!40000 ALTER TABLE `commodityswiper` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `historywalletchanges`
@@ -367,15 +293,6 @@ CREATE TABLE `historywalletchanges` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `historywalletchanges`
---
-
-LOCK TABLES `historywalletchanges` WRITE;
-/*!40000 ALTER TABLE `historywalletchanges` DISABLE KEYS */;
-/*!40000 ALTER TABLE `historywalletchanges` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `operationlog`
 --
 
@@ -393,13 +310,23 @@ CREATE TABLE `operationlog` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `operationlog`
+-- Table structure for table `orderblindbox`
 --
 
-LOCK TABLES `operationlog` WRITE;
-/*!40000 ALTER TABLE `operationlog` DISABLE KEYS */;
-/*!40000 ALTER TABLE `operationlog` ENABLE KEYS */;
-UNLOCK TABLES;
+DROP TABLE IF EXISTS `orderblindbox`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `orderblindbox` (
+  `BlindboxOrderNo` varchar(22) NOT NULL,
+  `userNo` bigint unsigned NOT NULL COMMENT '盲盒下单用户的No',
+  `BindBoxCode` bigint unsigned NOT NULL COMMENT '盲盒的code',
+  `createTime` datetime NOT NULL COMMENT '创建时间',
+  `UpdateTime` datetime NOT NULL COMMENT '更新时间',
+  `state` int NOT NULL COMMENT '订单状态1.未开启2.已开启3.已提货',
+  `CommodityOrderNo` bigint unsigned DEFAULT NULL COMMENT '提货之后所属商品的订单',
+  PRIMARY KEY (`BlindboxOrderNo`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `ordercommodity`
@@ -423,13 +350,40 @@ CREATE TABLE `ordercommodity` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `ordercommodity`
+-- Table structure for table `permissions`
 --
 
-LOCK TABLES `ordercommodity` WRITE;
-/*!40000 ALTER TABLE `ordercommodity` DISABLE KEYS */;
-/*!40000 ALTER TABLE `ordercommodity` ENABLE KEYS */;
-UNLOCK TABLES;
+DROP TABLE IF EXISTS `permissions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `permissions` (
+  `PermissionsId` bigint unsigned NOT NULL AUTO_INCREMENT COMMENT '权限id',
+  `PermissionsName` varchar(100) NOT NULL COMMENT '权限名称',
+  `ParentPermissionsId` bigint unsigned DEFAULT NULL COMMENT '父权限Id',
+  `PermissionRouting` json NOT NULL COMMENT '所属的权限的路由信息',
+  PRIMARY KEY (`PermissionsId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `roles`
+--
+
+DROP TABLE IF EXISTS `roles`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `roles` (
+  `roleId` bigint unsigned NOT NULL AUTO_INCREMENT COMMENT '角色的唯一Id',
+  `RoleName` varchar(150) NOT NULL COMMENT '角色的名称',
+  `RoleDescription` varchar(500) DEFAULT NULL COMMENT '对该角色的的描述',
+  `RolePermissions` varchar(5000) NOT NULL COMMENT '角色的权限信息为转化为字符串的数组，其中的值为所属权限的Id',
+  `CreateByNo` bigint unsigned NOT NULL COMMENT '创建者的No',
+  `UpdatedByNo` bigint unsigned NOT NULL COMMENT '更新者的No',
+  `createTime` datetime NOT NULL COMMENT '创建时间',
+  `updateTime` datetime NOT NULL COMMENT '更新时间',
+  PRIMARY KEY (`roleId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='后台管理系统角色表';
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `shopcarousel`
@@ -451,15 +405,6 @@ CREATE TABLE `shopcarousel` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `shopcarousel`
---
-
-LOCK TABLES `shopcarousel` WRITE;
-/*!40000 ALTER TABLE `shopcarousel` DISABLE KEYS */;
-/*!40000 ALTER TABLE `shopcarousel` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `shoppingcart`
 --
 
@@ -477,15 +422,6 @@ CREATE TABLE `shoppingcart` (
   PRIMARY KEY (`Id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `shoppingcart`
---
-
-LOCK TABLES `shoppingcart` WRITE;
-/*!40000 ALTER TABLE `shoppingcart` DISABLE KEYS */;
-/*!40000 ALTER TABLE `shoppingcart` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `shopuser`
@@ -515,15 +451,6 @@ CREATE TABLE `shopuser` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `shopuser`
---
-
-LOCK TABLES `shopuser` WRITE;
-/*!40000 ALTER TABLE `shopuser` DISABLE KEYS */;
-/*!40000 ALTER TABLE `shopuser` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `specificationimage`
 --
 
@@ -538,15 +465,6 @@ CREATE TABLE `specificationimage` (
   PRIMARY KEY (`SpecificationImageId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `specificationimage`
---
-
-LOCK TABLES `specificationimage` WRITE;
-/*!40000 ALTER TABLE `specificationimage` DISABLE KEYS */;
-/*!40000 ALTER TABLE `specificationimage` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `useraddress`
@@ -570,15 +488,6 @@ CREATE TABLE `useraddress` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `useraddress`
---
-
-LOCK TABLES `useraddress` WRITE;
-/*!40000 ALTER TABLE `useraddress` DISABLE KEYS */;
-/*!40000 ALTER TABLE `useraddress` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `userfeedback`
 --
 
@@ -595,15 +504,6 @@ CREATE TABLE `userfeedback` (
   PRIMARY KEY (`FeedBackId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `userfeedback`
---
-
-LOCK TABLES `userfeedback` WRITE;
-/*!40000 ALTER TABLE `userfeedback` DISABLE KEYS */;
-/*!40000 ALTER TABLE `userfeedback` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `wallet`
@@ -624,15 +524,6 @@ CREATE TABLE `wallet` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `wallet`
---
-
-LOCK TABLES `wallet` WRITE;
-/*!40000 ALTER TABLE `wallet` DISABLE KEYS */;
-/*!40000 ALTER TABLE `wallet` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Dumping events for database 'marketplacebackstage'
 --
 
@@ -649,4 +540,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-01-26 23:09:08
+-- Dump completed on 2024-02-01 22:50:57
