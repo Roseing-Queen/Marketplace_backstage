@@ -11,4 +11,6 @@ public interface ResponseCode {
     int UNKNOWN_ERROR = 504;
 // The status code returned by the database error
     int DATABASE_ERROR=600;
+//    Error
+    int ERROR=605;
 }
